@@ -12,10 +12,12 @@
 #include "Loader.h"
 #include <regex>
 
-Ground ground(8, 8, RED, WHITE);
+#define INTERVAL 1000/60
+
+Ground ground(8, 8, WHITE, RED);
 Camera camera;
-Ball ball(1, MAGENTA, 7, ground.centerx(), ground.centerz());
-Loader loader;
+Ball ball(1, RED, 7, ground.centerx(), ground.centerz(), 1000, INTERVAL);
+Loader loader(INTERVAL, 7, WHITE);
 
 void init() {
 	glEnable(GL_DEPTH_TEST);
@@ -38,7 +40,7 @@ void display() {
 	ground.draw();
 
 	if(loader.hasLoad) {
-		loader.draw();
+		loader.update();
 	} else {
 		ball.update();
 	}
@@ -57,7 +59,7 @@ void reshape(const GLint w, const GLint h) {
 
 void timer(const int v) {
 	glutPostRedisplay();
-	glutTimerFunc(1000 / 60, timer, v);
+	glutTimerFunc(INTERVAL, timer, v);
 }
 
 void special(const int key, int, int) {
@@ -105,10 +107,16 @@ void key(const unsigned char key, int x, int y) {
 void mouse(const int button, int state, int x, int y) {
 	switch (button) {
 		case GLUT_LEFT_BUTTON:
+			ball.restart();
+			loader.restart();
 			break;
 		case GLUT_MIDDLE_BUTTON:
+			ball.reset();
+			loader.reset();
 			break;
 		case GLUT_RIGHT_BUTTON:
+			ball.stop();
+			ball.stop();
 			break;
 		default:
 			break;
@@ -117,16 +125,16 @@ void mouse(const int button, int state, int x, int y) {
 
 int main(int argc, char** argv) {
 	if(argc > 2) {
-		printf("Usage: ./BouncingBall-3D [filepath]\n");
+		printf("Usage: ./BouncingBall-3D [file path]\n");
 		return -1;
 	}
+
 	if (argc == 2) {
 		const std::regex rex(".*.obj$");
 		if (!std::regex_match(argv[1], rex)) {
 			printf("Unsupported file type\n");
-			return -1;
+			return -2;
 		}
-		loader.hasLoad = true;
 		loader.load(argv[1]);
 	}
 
@@ -138,7 +146,7 @@ int main(int argc, char** argv) {
 	glutDisplayFunc(display);
 	glutReshapeFunc(reshape);
 	glutSpecialFunc(special);
-	glutTimerFunc(100, timer, 0);
+	glutTimerFunc(INTERVAL, timer, 0);
 	glutKeyboardFunc(key);
 	glutMouseFunc(mouse);
 	init();

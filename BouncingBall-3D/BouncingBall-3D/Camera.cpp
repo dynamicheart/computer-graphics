@@ -3,7 +3,7 @@
 #include "Camera.h"
 #include <cmath>
 
-Camera::Camera(): theta(0), y(3), dTheta(0.04), dy(0.2) {};
+Camera::Camera(): theta(90), y(5), dTheta(0.04), dy(0.2) {};
 
 double Camera::getX() const { return 10 * cos(theta); }
 
