@@ -5,6 +5,7 @@
 
 # User-specific files
 *.suo
+*.user
 *.userosscache
 *.sln.docstates
 
@@ -20,6 +21,7 @@ x64/
 x86/
 bld/
 [Bb]in/
+[Oo]bj/
 [Ll]og/
 
 # Visual Studio 2015 cache/options directory
@@ -54,6 +56,7 @@ artifacts/
 *_i.h
 *.ilk
 *.meta
+*.obj
 *.pch
 *.pdb
 *.pgc
@@ -105,6 +108,7 @@ $tf/
 # ReSharper is a .NET coding add-in
 _ReSharper*/
 *.[Rr]e[Ss]harper
+*.DotSettings.user
 
 # JustCode is a .NET coding add-in
 .JustCode
@@ -167,11 +171,11 @@ PublishScripts/
 # NuGet Packages
 *.nupkg
 # The packages folder can be ignored because of Package Restore
-**/packages/*
+**/[Pp]ackages/*
 # except build/, which is used as an MSBuild target.
-!**/packages/build/
+!**/[Pp]ackages/build/
 # Uncomment if necessary however generally it will be regenerated when needed
-#!**/packages/repositories.config
+#!**/[Pp]ackages/repositories.config
 # NuGet v3's project.json files produces more ignorable files
 *.nuget.props
 *.nuget.targets
