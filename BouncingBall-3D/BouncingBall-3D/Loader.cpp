@@ -7,12 +7,12 @@
 #include <GL/glut.h>
 #include <iostream>
 
-#define SCALE 800
+#define SCALE 1
 
 
 Loader::Loader(const double interval, const double maximumHeight, GLfloat* c): direction(DOWN), velocity(0),
                                                                                isMoving(false),
-                                                                               interval(interval/100.0), y(maximumHeight),
+                                                                               interval(interval/500.0), y(maximumHeight),
                                                                                minmumHeight(1),
                                                                                maximumHeight(maximumHeight), c(c),
                                                                                hasLoad(false) {}
@@ -191,6 +191,7 @@ void Loader::stop() { isMoving = false; }
 
 void Loader::reset() {
 	isMoving = true;
+	velocity = 0;
 	y = maximumHeight;
 	direction = DOWN;
 }

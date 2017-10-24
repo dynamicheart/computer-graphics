@@ -14,7 +14,7 @@
 
 #define INTERVAL 1000/60
 
-Ground ground(8, 8, WHITE, RED);
+Ground ground(10, 10, WHITE, RED);
 Camera camera;
 Ball ball(1, RED, 7, ground.centerx(), ground.centerz(), 1000, INTERVAL);
 Loader loader(INTERVAL, 7, WHITE);
@@ -116,7 +116,7 @@ void mouse(const int button, int state, int x, int y) {
 			break;
 		case GLUT_RIGHT_BUTTON:
 			ball.stop();
-			ball.stop();
+			loader.stop();
 			break;
 		default:
 			break;
