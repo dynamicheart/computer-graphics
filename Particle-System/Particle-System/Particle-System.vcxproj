@@ -113,17 +113,32 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Dome.cpp" />
+    <ClCompile Include="Camp.cpp" />
+    <ClCompile Include="Flame.cpp" />
+    <ClCompile Include="Gravity.cpp" />
+    <ClCompile Include="Igniter.cpp" />
+    <ClCompile Include="Light.cpp" />
     <ClCompile Include="Main.cpp" />
-    <ClCompile Include="Particles.cpp" />
+    <ClCompile Include="Padding.cpp" />
+    <ClCompile Include="Skybox.cpp" />
+    <ClCompile Include="Smoke.cpp" />
+    <ClCompile Include="SmokeEmitter.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Camera.h" />
-    <ClInclude Include="Dome.h" />
+    <ClInclude Include="Camp.h" />
+    <ClInclude Include="Flame.h" />
+    <ClInclude Include="Gravity.h" />
+    <ClInclude Include="Igniter.h" />
+    <ClInclude Include="Light.h" />
     <ClInclude Include="Mesh.h" />
     <ClInclude Include="Model.h" />
-    <ClInclude Include="Particles.h" />
+    <ClInclude Include="Padding.h" />
     <ClInclude Include="Shader.h" />
+    <ClInclude Include="Skybox.h" />
+    <ClInclude Include="Smoke.h" />
+    <ClInclude Include="SmokeEmitter.h" />
+    <ClInclude Include="Snow.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
